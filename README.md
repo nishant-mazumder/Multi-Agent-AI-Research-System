@@ -121,7 +121,7 @@ streamlit run app.py
 
 ## How it works internally
 
-### Search Agent
+### 1. Search Agent
 
 The Search Agent uses the **Tavily API** to fetch relevant and up-to-date web results.
 
@@ -135,7 +135,7 @@ This ensures the system always works with **fresh and relevant web data**.
 
 ---
 
-### 📄 Reader Agent
+### 2. Reader Agent
 
 The Reader Agent processes the URLs returned by the Search Agent.
 
@@ -149,9 +149,7 @@ The output is clean, structured text ready for the next stage in the pipeline.
 
 ---
 
----
-
-### ✍️ Writer Chain
+### 3. Writer Chain
 
 The Writer Chain is built using a **LangChain LCEL pipeline**:
 ```Prompt → LLM → Output Parser```
@@ -165,7 +163,7 @@ It takes the cleaned research data and generates a well-structured report contai
 
 ---
 
-### Critic Chain
+### 4. Critic Chain
 
 The Critic Chain evaluates the final generated report and provides structured feedback:
 
