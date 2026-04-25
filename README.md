@@ -15,11 +15,17 @@ This project is built using **LangChain**, **Groq LLMs**, **Tavily API**, and Py
 ### 🔹 Home Page
 ![Home Page](images/home.png)
 
-### 🔹 Research Output
-![Output](images/output.png)
+### 🔹 Search Process
+![Search](images/search.png)
 
-### 🔹 Agent Pipeline Running
-![Pipeline](images/pipeline.png)
+### 🔹 Research Completion
+![Research Complete](images/research_complete.png)
+
+### 🔹 Final Result
+![Final Result](images/report.png)
+
+### 🔹 Critic Review
+![Critic Review](images/critic_review.png)
 
 ---
 
