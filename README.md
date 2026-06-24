@@ -26,7 +26,7 @@ All of this happens through a fully automated **multi-agent AI pipeline**, simul
 The workflow is designed like a real research assistant team, where each AI agent has a specialized role in the pipeline:
 
 ```mermaid
-graph TD
+flowchart TD
     %% Define Nodes
     User(["👤 User Input: Research Topic"])
     
