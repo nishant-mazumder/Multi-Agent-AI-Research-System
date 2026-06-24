@@ -49,29 +49,29 @@ The workflow is designed like a real research assistant team, where each AI agen
 ```mermaid
 graph TD
     %% Define Nodes
-    User([👤 User Input: Research Topic])
+    User(["👤 User Input: Research Topic"])
     
-    subgraph "LangChain Multi-Agent Pipeline"
-        Search[🔍 Search Agent]
-        Reader[📄 Reader Agent]
-        Writer[✍️ Writer Chain]
-        Critic[🧠 Critic Chain]
+    subgraph Pipeline ["LangChain Multi-Agent Pipeline"]
+        Search["🔍 Search Agent"]
+        Reader["📄 Reader Agent"]
+        Writer["✍️ Writer Chain"]
+        Critic["🧠 Critic Chain"]
     end
 
     %% External APIs/Tools
-    Tavily((🌐 Tavily API))
-    Scraper((🕸️ Web Scraper))
-    LLM((🧠 Groq LLM))
+    Tavily(("🌐 Tavily API"))
+    Scraper(("🕸️ Web Scraper"))
+    LLM(("🧠 Groq LLM"))
 
     %% Data Flow
     User --> Search
-    Search <-->|"Queries & Results"| Tavily
-    Search -->|"Top URLs & Snippets"| Reader
-    Reader <-->|"Scrapes HTML"| Scraper
-    Reader -->|"Cleaned Text Content"| Writer
-    Writer <-->|"Generates Report"| LLM
-    Writer -->|"Draft Report"| Critic
-    Critic <-->|"Evaluates Report"| LLM
+    Search <--> |Queries and Results| Tavily
+    Search --> |Top URLs and Snippets| Reader
+    Reader <--> |Scrapes HTML| Scraper
+    Reader --> |Cleaned Text Content| Writer
+    Writer <--> |Generates Report| LLM
+    Writer --> |Draft Report| Critic
+    Critic <--> |Evaluates Report| LLM
     Critic --> Output(["📄 Final Output: Report + Feedback"])
 
     %% Styling
