@@ -8,27 +8,6 @@ This project is built using **LangChain**, **Groq LLMs**, **Tavily API**, and Py
 
 ---
 
-## Screenshots
-
-## 📸 Screenshots
-
-### 🔹 Home Page
-![Home Page](images/home.png)
-
-### 🔹 Search Process
-![Search](images/search.png)
-
-### 🔹 Research Completion
-![Research Complete](images/research_complete.png)
-
-### 🔹 Final Result
-![Final Result](images/report.png)
-
-### 🔹 Critic Review
-![Critic Review](images/critic_review.png)
-
----
-
 ## What this project does
 
 Given a research topic, the system automatically:
@@ -83,6 +62,25 @@ graph TD
     class User,Output input
     class Tavily,Scraper,LLM ext
 ```
+
+---
+
+## 📸 Screenshots
+
+### 🔹 Home Page
+![Home Page](images/home.png)
+
+### 🔹 Search Process
+![Search](images/search.png)
+
+### 🔹 Research Completion
+![Research Complete](images/research_complete.png)
+
+### 🔹 Final Result
+![Final Result](images/report.png)
+
+### 🔹 Critic Review
+![Critic Review](images/critic_review.png)
 
 ---
 
