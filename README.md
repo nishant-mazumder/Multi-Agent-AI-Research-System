@@ -46,18 +46,42 @@ All of this happens through a fully automated **multi-agent AI pipeline**, simul
 
 The workflow is designed like a real research assistant team, where each AI agent has a specialized role in the pipeline:
 
-```bash
-User Input (Topic)
-        ↓
-Search Agent → Finds relevant web results (Tavily)
-        ↓
-Reader Agent → Scrapes and extracts full article content
-        ↓
-Writer Chain → Generates structured research report
-        ↓
-Critic Chain → Reviews report and gives feedback + score
-        ↓
-Final Output (Report + Evaluation
+```mermaid
+graph TD
+    %% Define Nodes
+    User([👤 User Input: Research Topic])
+    
+    subgraph "LangChain Multi-Agent Pipeline"
+        Search[🔍 Search Agent]
+        Reader[📄 Reader Agent]
+        Writer[✍️ Writer Chain]
+        Critic[🧠 Critic Chain]
+    end
+
+    %% External APIs/Tools
+    Tavily((🌐 Tavily API))
+    Scraper((🕸️ Web Scraper))
+    LLM((🧠 Groq LLM))
+
+    %% Data Flow
+    User --> Search
+    Search <-->|"Queries & Results"| Tavily
+    Search -->|"Top URLs & Snippets"| Reader
+    Reader <-->|"Scrapes HTML"| Scraper
+    Reader -->|"Cleaned Text Content"| Writer
+    Writer <-->|"Generates Report"| LLM
+    Writer -->|"Draft Report"| Critic
+    Critic <-->|"Evaluates Report"| LLM
+    Critic --> Output(["📄 Final Output: Report + Feedback"])
+
+    %% Styling
+    classDef agent fill:#0984e3,stroke:#74b9ff,stroke-width:2px,color:#fff,font-weight:bold
+    classDef input fill:#6c5ce7,stroke:#a29bfe,stroke-width:2px,color:#fff,font-weight:bold
+    classDef ext fill:#00b894,stroke:#55efc4,stroke-width:2px,color:#fff
+
+    class Search,Reader,Writer,Critic agent
+    class User,Output input
+    class Tavily,Scraper,LLM ext
 ```
 
 ---
